@@ -1,0 +1,14 @@
+name: Trigger website build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Dispatch generate downloads
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Generate downloads list
+          repo: haresfield-pc/website
+          token: ${{ secrets.ACCESS_TOKEN }}
